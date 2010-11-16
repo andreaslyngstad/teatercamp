@@ -1,0 +1,34 @@
+<h1>Påmelding</h1>
+
+		<table class="table_regular_adm" cellspacing="0" cellpadding="0">
+  <tr>
+  	<th>Kurs</th>
+    <th>Navn</th>
+    <th>Alder</th>
+    <th>Navn foresatt</th>
+    <th>Telefon foresatt</th>
+	<th>Navn fores. 2</th>
+    <th>Telefon fores. 2</th>
+    <th>Faktura epost</th>
+	<th></th>
+	<th></th>
+	<th></th>
+  </tr>
+
+<% @registrations.each do |registration| %>
+ <tr id="<%=registration.id %>">
+	<% if params[:id] == registration.id.to_s%>
+	<tr id="<%= params[:id] %>" style="background:#999999">
+  		<% end %>
+  	 <td><%=h registration.camp.name %></td>
+    <td><%=h registration.name %></td>
+    <td><%=h registration.age %></td>
+    <td><%=h registration.parent_one_name %></td>
+   
+    <td><%=h registration.parent_one_phone %></td>
+	 <td><%=h registration.parent_two_name %></td>
+    <td><%=h registration.parent_two_phone %></td>
+    <td><%=mail_to(registration.billing_email) %></td>
+  </tr>
+<% end %>
+</table>

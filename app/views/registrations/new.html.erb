@@ -1,0 +1,60 @@
+<% @page_title = "påmelding" %>
+<div id="content_l">
+<h1>Påmelding <%= @registration.camp.name %></h1> 
+<h3>Fra <%=@registration.camp.begin.strftime('%d.%m.%Y')%> til <%=@registration.camp.end.strftime('%d.%m.%Y')%>. Fra <%=@registration.camp.age1%> til <%=@registration.camp.age2%> år</h3>
+<p></p>
+<p>* må fylles ut korrekt</p>
+<ul class="form_layout">
+<%= render_error_messages @registration%>
+<% form_for(@registration, @camp, :html => {:id => "registration_form" }) do |f| %>
+
+  <%= f.hidden_field :camp_id, :value => @camp.id%>
+ 
+	
+  
+    <li><%= f.label :Deltagerens_navn %>
+    <%= f.text_field :name %>*</li>
+
+  <li>  <%= f.label :Deltagerens_alder %>
+    <%= f.text_field :age %>*</li>
+ 
+    <li><%= f.label :Pårørende_navn %>
+    <%= f.text_field :parent_one_name %>*</li>
+	<li><%= f.label :Pårørende_telefon %>
+    <%= f.text_field :parent_one_phone %>*</li>
+ 
+    <li><%= f.label "2.Pårørende navn" %>
+    <%= f.text_field :parent_two_name %></li>
+
+    <li><%= f.label "2.Pårørende tlf" %>
+    <%= f.text_field :parent_two_phone %></li>
+ 
+    <li><%= f.label :Faktura_epost %>
+    <%= f.text_field :billing_email, :required => true %>*</li>
+ 
+    <li><%= f.label "Fortell om deg selv" %>
+    <%= f.text_area :tell %></li>
+  
+    <li><%= f.label "Medisinsk_informasjon"  %>
+    <%= f.text_area :medical %></li>
+ <li><label>&nbsp;</label><%= show_simple_captcha(:label => "For å bevise at du er et menneske og ikke en spam robot, må du skrive in koden ovenfor.", :image_style => 'charcoal_grey') %></li>
+	<li><label>&nbsp;</label><%= f.submit "Send påmelding", :class => 'submit' %></li>
+
+</ul>
+<% end %>
+
+</div>
+
+<div id="content_r">
+	
+	<br /><br />
+	<h3>Veiledning</h3>
+	<p>Det du fyller inn her blir kun tilgjengelig for oss på teater|camp</p>
+	<p>Vi foretrekker å spare både tid og miljøet ved å sende faktura på epost. I feltet "Faktura epost" vil vi ha epostaddressen til den som skal betale for oppholdet.</p>
+	<p>Det er fint for oss å vite litt om deg på før du kommer. I feltet "Fortell om deg selv" kan du fortell oss litt om dine interesser og talenter. Spiller du foreksempel et instrument?</p>
+	<p>Hvis det er det noe av medisinsk art, vi må vite om deg, skal du fylle det inn i feltet for "Medisinsk informasjon". Det kan være om du har allergier eller om du må ta medisiner.</p>
+	<p>Hvis du kommer på at du har gjort noe feil i påmeldingen etter at den er sendt, kan du ta kontakt på epost eller telefon.</p>
+	<p>Dersom vi må vite noe om du som er svært sensitivt, kan du godt ringe oss. Du finner telefonnumre under kontaktfanen.</p>
+	
+</div>
+

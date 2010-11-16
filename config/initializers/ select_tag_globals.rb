@@ -1,0 +1,1 @@
+TRUE_FALSE = { 'Ja'=>true, 'Nei'=>false }

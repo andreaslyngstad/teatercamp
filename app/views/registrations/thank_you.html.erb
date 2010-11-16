@@ -1,0 +1,55 @@
+<div id="content_l">
+<% @page_title = "Påmeldingen er registret" %>
+
+<h1>Tusen takk for påmeldingen!</h1>
+<h2>Du har skrevet dette om deg selv.</h2> 
+<p>
+  <b>Navn:</b><br />
+  <%=h @registration.name %>
+</p>
+
+<p>
+  <b>Alder:</b><br />
+  <%=h @registration.age %>
+</p>
+
+<p>
+  <b>Pårørendes navn:</b><br />
+  <%=h @registration.parent_one_name %>
+</p>
+<p>
+  <b>Pårørendes telefon:</b><br />
+  <%=h @registration.parent_one_phone %>
+</p>
+<p>
+  <b>2. Pårørendes navn:</b><br />
+  <%=h @registration.parent_two_name %>
+</p>
+
+
+
+<p>
+  <b>2. Pårørendes telefon:</b><br />
+  <%=h @registration.parent_two_phone %>
+</p>
+
+<p>
+  <b>Faktura epost:</b><br />
+  <%=h @registration.billing_email %>
+</p>
+
+<p>
+  <b>Fortell om deg selv:</b><br />
+  <%=h @registration.tell %>
+</p>
+
+<p>
+  <b>Medisinsk informasjon:</b><br />
+  <%=h @registration.medical %>
+</p>
+
+<b>Vi kommer til å ta kontakt og gi mer informasjon. Gleder oss til å treffe deg.</b>
+</div>
+
+<div id="content_r">
+	</div>

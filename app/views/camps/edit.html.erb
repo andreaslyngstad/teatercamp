@@ -1,0 +1,32 @@
+<h1>Editing camp</h1>
+
+<% form_for(@camp) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :age %><br />
+    <%= f.text_field :age %>
+  </p>
+  <p>
+    <%= f.label :begin %><br />
+    <%= f.text_field :begin %>
+  </p>
+  <p>
+    <%= f.label :end %><br />
+    <%= f.text_field :end %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @camp %> |
+<%= link_to 'Back', camps_path %>

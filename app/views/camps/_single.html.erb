@@ -1,0 +1,9 @@
+	<p><b><%= @camp.name %></b></p>
+	<p><%= @camp.description %></p>
+
+<h3>Påmeldte</h3>
+<ul>
+	<%@camp.registrations.each do |reg|%>
+	<li><%= link_to(reg.name, registrations_path(:id => reg))%>, <%= reg.age %> år : <%= link_to 'slett', reg, :confirm => 'Er du sikker?', :method => :delete %></li>
+	<%end%>
+	</ul>

@@ -1,0 +1,42 @@
+<h1>Alle kurs</h1>
+<p><%= link_to "Nytt kurs", camps_path%></p>    
+
+<table class="table_regular_adm" cellspacing="0" cellpadding="0">
+	<tr>
+		<th>Navn</th>
+		<th>Offentlig</th>
+		<th>Påmeldinger</th>
+		<th>Antall deltagere</th>
+	    <th>Beskrivelse</th>
+	    <th>Alder</th>
+	    <th>Begynner</th>
+	    <th>Slutter</th>
+		<th></th>
+	</tr>
+
+	<% @camps.each do |camp| %>
+	<tr id="<%=camp.id %>">
+	<% if params[:id] == camp.id.to_s%>
+	<tr id="<%= params[:id] %>" style="background:#999999">
+  		<% end %>
+  	
+	    <td><%=h camp.name %></td>
+	    <% if camp.public == false %>
+	    	    <td>nei</td>
+	    	 <% else %>
+	    	   <td>ja</td>
+	    	   <% end %>
+		<td><%=h camp.registrations.count %></td>
+		<td><%=h camp.participants %></td>
+	    <td><%=h truncate(h(camp.description), :length => 35)%></td>
+	    <td><%=h camp.age1 %> - <%=h camp.age2 %> år</td>
+	    <td><%=h camp.begin.strftime('%d.%m.%Y')%></td>
+	    <td><%=h camp.end.strftime('%d.%m.%Y') %></td>
+	    <td>
+	    	<%= link_to 'Vis', camp_path(camp) %>
+	    	<%= link_to 'Oppdater', :action => 'index', :id => camp %>
+	   		<%= link_to 'Slett', camp, :confirm => 'Er du sikker?', :method => :delete %></td>
+  	</tr>
+<% end %>
+</table>
+		

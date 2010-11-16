@@ -1,0 +1,35 @@
+
+<h1>Kurs</h1><% @camps.each do |c| %>
+<ul style="list-style:none;">
+  <li><b><%= c.name %>:</b> <%= c.age1 %> - <%= c.age2 %> år</li>
+  <% c.registrations.each do |f| %>
+  <%= f.billing_email %>, 
+  <% end %>
+</ul>
+<% end %>
+<br/>
+<br/>
+<h2>Fra 0 til 12</h2>
+<br/>
+<br/>
+
+ <%= @small_mails %>
+<br/>
+<br/>
+<h2>Fra 12 til 15</h2>
+<br/>
+<br/>
+ <%= @medium_mails %>
+<br/>
+<br/>
+<h2>Fra 16 til 100</h2>
+<br/>
+<br/>
+<%= @big_mails %>
+<br/>
+<br/>
+<h2>Alle</h2>
+<br/>
+<br/>
+
+<%= @all_mails %>

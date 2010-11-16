@@ -1,0 +1,6 @@
+<h2><%= @message.subject %></h2>
+	<p>Forfattet av <strong><%= @message.name%></strong> <%= @message.email%></p>
+	<p>Postet: <%= @message.created_at.strftime('%d.%m.%y kl %H:%m')%></p>
+
+	<p><%= @message.body  %></p>
+	

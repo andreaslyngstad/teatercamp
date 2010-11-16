@@ -1,0 +1,47 @@
+<% @page_title = "påmelding" %>
+<div id="content_l">
+<h1>Påmelding <%= @registration.camp.name %></h1> 
+<h3>Fra <%=@registration.camp.begin.strftime('%d.%m.%Y')%> til <%=@registration.camp.end.strftime('%d.%m.%Y')%>. Fra <%=@registration.camp.age1%> til <%=@registration.camp.age2%> år</h3>
+<p></p>
+<p>* må fylles ut korrekt</p>
+<ul class="form_layout">
+<%= render_error_messages @registration%>
+<% form_for(@registration, @camp, :html => {:id => "registration_form" }) do |f| %>
+
+  <li><%= f.label :Hvilken_Camp %>
+  <%= f.collection_select :camp_id, Camp.all, :id, :name%></li>
+ 
+	
+  
+    <li><%= f.label :Deltagerens_navn %>
+    <%= f.text_field :name %>*</li>
+
+  <li>  <%= f.label :Deltagerens_alder %>
+    <%= f.text_field :age %>*</li>
+ 
+    <li><%= f.label :Pårørende_navn %>
+    <%= f.text_field :parent_one_name %>*</li>
+	<li><%= f.label :Pårørende_telefon %>
+    <%= f.text_field :parent_one_phone %>*</li>
+ 
+    <li><%= f.label "2.Pårørende navn" %>
+    <%= f.text_field :parent_two_name %></li>
+
+    <li><%= f.label "2.Pårørende tlf" %>
+    <%= f.text_field :parent_two_phone %></li>
+ 
+    <li><%= f.label :Faktura_epost %>
+    <%= f.text_field :billing_email, :required => true %>*</li>
+ 
+    <li><%= f.label "Fortell om deg selv" %>
+    <%= f.text_area :tell %></li>
+  
+    <li><%= f.label "Medisinsk_informasjon"  %>
+    <%= f.text_area :medical %></li>
+ 
+	<li><label>&nbsp;</label><%= f.submit "Send påmelding", :class => 'submit' %></li>
+
+</ul>
+<% end %>
+
+</div>

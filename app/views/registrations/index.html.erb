@@ -1,0 +1,57 @@
+<div id="content_l">
+<%= link_to "Eposter", view_emails_path %>
+<h1>Påmeldinger</h1><br /><br />
+
+<table class="table_regular_adm" cellspacing="0" cellpadding="0">
+  <tr>
+  	<th>Kurs</th>
+    <th>Navn</th>
+    <th>Alder</th>
+    <th>Navn foresatt</th>
+    <th>Telefon foresatt</th>
+	<th>Navn fores. 2</th>
+    <th>Telefon fores. 2</th>
+    <th>Faktura epost</th>
+	<th></th>
+	<th></th>
+	<th></th>
+  </tr>
+
+<% @registrations.each do |registration| %>
+ <tr id="<%=registration.id %>">
+	<% if params[:id] == registration.id.to_s%>
+	<tr id="<%= params[:id] %>" style="background:#999999">
+  		<% end %>
+  	 <td><%=h registration.camp.name %></td>
+    <td><%=h registration.name %></td>
+    <td><%=h registration.age %></td>
+    <td><%=h registration.parent_one_name %></td>
+   
+    <td><%=h registration.parent_one_phone %></td>
+	 <td><%=h registration.parent_two_name %></td>
+    <td><%=h registration.parent_two_phone %></td>
+    <td><%=mail_to(registration.billing_email) %></td>
+  
+   
+    <td><%= link_to 'Vis', registrations_path(:id => registration) %></td>
+    <td><%= link_to 'Oppdater', edit_registration_path(:id => registration) %></td>
+    <td><%= link_to 'slett', registration, :confirm => 'Er du sikker?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+
+<div id="content_r">
+	<br /><br />
+	<% if params[:id]%>
+		<p><b><%= @registration.name%></b></p>
+		<p><b>Alder: <%= @registration.age%></b></p>
+		<p><b><%= @registration.camp.name %> fra <%=h @registration.camp.begin.strftime('%d.%m.%Y') %> til <%=h @registration.camp.end.strftime('%d.%m.%Y') %></b></p>
+		<p><b>Om eleven</b></p>
+		<p><%= @registration.tell%></p><br /><br />
+		<p><b>Medisinsk informasjon</b></p>
+		<p><%= @registration.medical%></p>
+	<% end %>
+	
+	
+</div>

@@ -1,0 +1,38 @@
+
+<li>
+<%= label_tag 'Navn' %>
+<%= f.text_field :name %>
+</li>
+
+
+<li>
+<%= label_tag 'Alder fra - til' %>
+<%= f.select :age1, 10..99 %>
+<%= f.select :age2, 10..99 %>
+</li>
+
+<li>
+<%= label_tag 'Begynner' %>
+<%= f.date_select :begin, :start_year => Time.now.year  %>
+</li>
+
+<li>
+<%= label_tag 'Slutter' %>
+<%= f.date_select :end, :start_year => Time.now.year  %>
+</li>
+
+<li>
+<%= label_tag 'Antall deltagere' %>
+<%= f.select :participants, 1..40 %>
+
+</li>
+<li>
+<%= label_tag 'Offentlig' %>
+<%= f.select :public, TRUE_FALSE %>
+</li>
+<li>
+<%= label_tag 'Beskrivelse' %>
+<%= f.text_area :description %>
+</li>
+
+

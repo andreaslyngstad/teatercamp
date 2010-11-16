@@ -1,0 +1,50 @@
+
+<div id="content_l">
+<% form_for(@option, if !@option.app_name.blank? then { :action => "create"} else {:action => "update", :id => @option}end)  do |f|%>
+
+<ul class="form_layout_adm_l">
+	<h1>Innstillinger</h1>
+<label>&nbsp;</label><%= link_to 'Tøm skjemaet', @option, :confirm => 'Instillingene blir slettet. Er du sikker?', :method => :delete %></li> <br /><br />
+	<li>1. <%= f.label :Sidens_navn %></li> 
+	 <li><%= f.text_field :app_name%></li>
+	
+	
+	<li>2. <%= f.label :css %></li>  
+	 <li><%= f.select(:css, ['design_1', 'design_2', 'design_3', 'design_4' ])%></li>
+	
+	<li>3. <%= f.label :Eierens_navn %></li>  
+	<li><%= f.text_field :owner_name %></li>
+
+	<li>4 .<%= f.label :Meta_beskrivelse %></li>  
+	<li><%= f.text_field :meta_description %></li>
+
+	<li>5. <%= f.label :Meta_stikkord %></li>  
+<li><%= f.text_field :meta_keywords %></li>
+
+<li><label>&nbsp;</label><%= f.submit "Lagre",:class => 'submit' %>
+<% if !@option.app_name.blank?%>
+
+<%end%>
+<%end%>
+<br /><br />
+<p><h3>Forklaring</h3></p>
+<ol>
+	<li>1. Sidens navn</li>
+	<p>Dette navnet vil stå øverst i nettleseren sammen med navnet på den spesifikke siden brukeren er på.</p>
+	<li>2. Css</li>
+	<p>Her kan du velge hvilket sideoppsett du ønsker.</p>
+	<li>3. Eierens navn</li>
+	<p>Navnet til den som eier siden</p>
+	
+	<b>For søkemotorer</b><br /><br />
+	For at folk skal finne siden er det viktig at søkemotorer får info fra siden. <br /><br />
+	<li>4. Meta beskrivelse</li>
+	<p>Dette feltet gir søkemotorer som google en beskrivelse av siden. <br /><span style="font-size: 7pt; color:green;"> Eksempel fra finn.no "På FINN.no kan du søke etter nesten hva <br />som helst. Alt fra restauranter på Trysil, bowlingkuler, biler, flyreiser, hotell og bolig, til stilling ledig og mye mye mer."</span></p>
+	<li>5. Meta stikkord</li>
+	<p>Dette feltet gir søkemotorer stikkord om inholdet på siden. <br /><span style="font-size: 7pt; color:green;"> Eksempel fra dagbladet.no "nyheter,nytt,nyhet,nettavis,dagbladet,avis,norge,europa,skandinavia,norden,jobb,bolig,bil,<br />sport,sms,vær,værvarsel,politikk,kjendis,feature,magasinet,forbruker,helse,sex,reise,bil,data,teknologi,weblogg,blogg,blogging,<br />blogger,weblog,blog,meninger,kommentarer,litteratur,musikk,film,dvd,spill"</span></p>
+	<li>6. Indexer siden hos søkemotorene</li>
+	
+	<p>Gå til <a href="http://www.google.com/addurl/" style="color:red;" target="_blank">Google</a>, <a href="http://help.yahoo.com/l/us/yahoo/search/urlstatus.html" style="color:red;" target="_blank">Yahoo!</a> og  å legg inn sidens webadresse. Da vil siden dukke opp i søkemotorenes resultater raskere</p>
+</ol>
+
+</div>

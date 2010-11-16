@@ -1,0 +1,48 @@
+<p>
+  <b>Name:</b>
+  <%=h @registration.name %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%=h @registration.age %>
+</p>
+
+<p>
+  <b>Parent one name:</b>
+  <%=h @registration.parent_one_name %>
+</p>
+
+<p>
+  <b>Parent two name:</b>
+  <%=h @registration.parent_two_name %>
+</p>
+
+<p>
+  <b>Parent one phone:</b>
+  <%=h @registration.parent_one_phone %>
+</p>
+
+<p>
+  <b>Parent two phone:</b>
+  <%=h @registration.parent_two_phone %>
+</p>
+
+<p>
+  <b>Billing email:</b>
+  <%=h @registration.billing_email %>
+</p>
+
+<p>
+  <b>Tell:</b>
+  <%=h @registration.tell %>
+</p>
+
+<p>
+  <b>Medical:</b>
+  <%=h @registration.medical %>
+</p>
+
+
+<%= link_to 'Edit', edit_registration_path(@registration) %> |
+<%= link_to 'Back', registrations_path %>

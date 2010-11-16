@@ -1,0 +1,10 @@
+	<h2>Ny Bruker</h2>
+	
+	<% form_for :user, :url => users_path do |f| -%>
+	<%= error_messages_for :user %>
+	<ul class="form_layout">	
+		<%= render( :partial => "form", :locals => {:f => f})%>
+		<li><label>&nbsp;</label><%= f.submit('Lagre',:class => 'submit') %></li>
+	</ul>	
+	<% end -%>
+
